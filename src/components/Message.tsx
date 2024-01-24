@@ -1,7 +1,7 @@
 
 const Message = ({ text, isUser, date }:{text:string|null, isUser:boolean, date:string}) => {
   return (
-    <div style={{ textAlign: isUser ? 'right' : 'left' }} className="my-3 bg-gray-100 p-2 rounded">
+    <div style={{ textAlign: isUser ? 'right' : 'left' }} className="my-3 bg-slate-100 dark:bg-slate-900 p-2 rounded">
       <p style={{ padding: '8px', display: 'inline-block' }} className=" px-2 h-full">
         {text}
       </p>

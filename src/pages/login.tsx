@@ -55,11 +55,11 @@ export default function Login(){
                     description:"Please check your credentials and try again."
                 })
               }
-              if(error == "FirebaseError: Firebase: Error (auth/network-request-failed)."){
+              else if(error == "FirebaseError: Firebase: Error (auth/network-request-failed)."){
                 toast.error("Network error",{
                     description:"Please check your internet connection and try again."
                 })
-              }
+              } 
            console.log(error); 
         }
         
@@ -104,6 +104,11 @@ export default function Login(){
                 })
             } catch (error) {
                 console.log(error);
+                if(error == "FirebaseError: Firebase: Error (auth/email-already-in-use)."){
+                    toast.error("Email already in use",{
+                        description: "Please choose a different email address."
+                    })
+                  }
             }
         }
         setLoading(false);
@@ -131,10 +136,11 @@ export default function Login(){
                         messages: [],
                     },
                 })
+                toast.success("Successful operation",{
+                    description:"User sign with google added!",
+                })
             }
-            toast.success("Successful operation",{
-                description:"User sign with google added!",
-            })
+            
         } catch (error) {
             if(error == "FirebaseError: Firebase: Error (auth/email-already-in-use)." || error== "Nous avons une erreur FirebaseError: Firebase: Error (auth/account-exists-with-different-credential).") {
                 toast.error("Failed operation",{
@@ -235,11 +241,11 @@ export default function Login(){
                     </Card>
                 </TabsContent>
             </Tabs>
-            <div className="mt-5 flex w-full pb-10">
+            {/* <div className="mt-5 flex w-full pb-10">
                 <Button className="w-full" variant="danger" onClick={handleSignUpwithGoogle}>
                     Signup with Google
                 </Button>
-            </div>
+            </div> */}
         </main>
         </>
     )

@@ -12,6 +12,7 @@ import OpenAI from "openai";
 import { env } from "@/env";
 import axios from "axios";
 import { NextSeo } from "next-seo";
+import { useRouter } from "next/navigation";
 type Message = {
     text: string|null;
     isUser: boolean;
@@ -30,6 +31,7 @@ const Write = () =>{
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         if(user){
@@ -37,6 +39,8 @@ const Write = () =>{
             getDoc(docRef).then((doc) => {
                 setUserData(doc.data())
             })
+        }else {
+            router.push("/login")
         }
     })
     const handleSendMessage = async(e:React.FormEvent<HTMLFormElement>) => {
@@ -112,7 +116,7 @@ const Write = () =>{
         <div className="pt-[65px] max-w-[800px] mx-auto">
             <HeaderChat username={user?.displayName} last_seen={user?.metadata.lastSignInTime}/>
 
-            <div className="pb-[150px]">
+            <div className="pb-[150px] px-3">
                 {messages.map((message, index) => (
                     <Message key={index} text={message.text} isUser={message.isUser} date={message.createdAt.toLocaleTimeString("fr-FR")} />
                 ))}

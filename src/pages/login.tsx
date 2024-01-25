@@ -194,11 +194,11 @@ export default function Login(){
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="email_login">Email <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="email_login" type="email" placeholder="Enter your email ..." value={login_email} onChange={(e)=>setLoginEmail(e.target.value)} />
+                                <Input id="email_login" type="email" placeholder="Enter your email ..." value={login_email} onChange={(e)=>setLoginEmail(e.target.value)} required/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="password_login">Password <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="password_login" type="password" placeholder="Enter your password ..." value={login_password} onChange={(e)=>setLoginPassword(e.target.value)} />
+                                <Input id="password_login" type="password" placeholder="Enter your password ..." value={login_password} onChange={(e)=>setLoginPassword(e.target.value)} required/>
                             </div>
                         </CardContent>
                         <CardFooter>
@@ -219,19 +219,19 @@ export default function Login(){
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="username">Username <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="username" type="text" placeholder="Enter your name ..." value={signup_name} onChange={(e)=>setSignupName(e.target.value)}/>
+                                <Input id="username" type="text" placeholder="Enter your name ..." value={signup_name} onChange={(e)=>setSignupName(e.target.value)} required/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="email_signup">Email <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="email_signup" type="email" placeholder="Enter your email ..." value={signup_email} onChange={(e)=>setSignupEmail(e.target.value)}/>
+                                <Input id="email_signup" type="email" placeholder="Enter your email ..." value={signup_email} onChange={(e)=>setSignupEmail(e.target.value)} required/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="password_signup">Password <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="password_signup" type="password" placeholder="Enter your password ..." value={signup_password} onChange={(e)=>setSignupPassword(e.target.value)}/>
+                                <Input id="password_signup" type="password" placeholder="Enter your password ..." value={signup_password} onChange={(e)=>setSignupPassword(e.target.value)} required/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="conf_password_signup">Confirm your password <sup className="text-red-600 text-sm">*</sup>:</Label>
-                                <Input id="conf_password_signup" type="password" placeholder="Confirm your password ..." value={signup_confirm_password} onChange={(e)=>setSignupConfirmPassword(e.target.value)}/>
+                                <Input id="conf_password_signup" type="password" placeholder="Confirm your password ..." value={signup_confirm_password} onChange={(e)=>setSignupConfirmPassword(e.target.value)} required/>
                             </div>
                         </CardContent>
                         <CardFooter>

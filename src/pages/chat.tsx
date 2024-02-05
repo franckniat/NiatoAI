@@ -10,7 +10,6 @@ import { ArrowUp, Loader2 } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import OpenAI from "openai";
 import { env } from "@/env";
-import axios from "axios";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/navigation";
 type Message = {
@@ -74,7 +73,6 @@ const Write = () =>{
             model: "gpt-3.5-turbo",
         })
         const response = completions.choices[0].message.content;
-        console.log(response);
         setMessages([...updatedMessages, { text: response, isUser: false, createdAt: new Date() }]);
         /* if(user){
             const userRef = doc(db, "users", user?.uid);
@@ -113,8 +111,8 @@ const Write = () =>{
             }}
         />
         
-        <div className="pt-[65px] max-w-[800px] mx-auto">
-            <HeaderChat username={user?.displayName} last_seen={user?.metadata.lastSignInTime}/>
+        <div className="pt-[65px] max-w-[600px] mx-auto">
+            <HeaderChat username={user?.displayName} last_seen={`${loading ? "typing ..." : ""}`}/>
 
             <div className="pb-[150px] px-3">
                 {messages.map((message, index) => (
@@ -132,7 +130,7 @@ const Write = () =>{
 
 
             <div className="fixed bottom-0 w-full">
-                <div className="max-w-[800px] p-5 bg-slate-200 dark:bg-slate-950">
+                <div className="max-w-[600px] p-5 bg-slate-200 dark:bg-slate-950">
                         <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                             <Input placeholder="Type your message ..." className="w-full bg-slate-50 dark:bg-slate-800" value={newMessage} onChange={(e) => setNewMessage(e.target.value)}/>
                             <Button variant="default" size={"icon"} className="flex items-center gap-2" type="submit" disabled={loading}>

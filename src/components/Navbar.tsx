@@ -24,7 +24,7 @@ export default function Navbar(){
     })
     return(
         <nav className="fixed top-0 w-full bg-white bg-opacity-95 backdrop-blur-sm  dark:bg-slate-950 z-20">
-            <section className="max-w-[800px] mx-auto px-3">
+            <section className="max-w-[600px] mx-auto px-3">
                 <section className="flex items-center justify-between h-[60px]">
                     <div className="text-xl font-bold">
                         <Link href="/">Niato AI</Link>

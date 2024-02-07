@@ -23,7 +23,9 @@ export default function Home() {
                         width: 800,
                         height: 600,
                     }
-                ]
+                ],
+                type: 'website',
+                locale: 'en_US',
             }}
             twitter={{
                 handle: '@manuel_niat',

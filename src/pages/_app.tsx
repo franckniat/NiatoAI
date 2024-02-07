@@ -5,6 +5,7 @@ import NextThemesProvider from "@/context/ThemeProvider";
 import { AuthUserProvider } from "@/context/AuthContextProvider";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${inter.className} bg-white dark:bg-slate-950`}>
       <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+        <SpeedInsights/>
         <AuthUserProvider>
           <Navbar/>
           <Toaster />
